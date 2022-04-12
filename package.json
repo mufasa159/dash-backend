@@ -1,0 +1,23 @@
+{
+  "name": "dash-server",
+  "version": "1.0.0",
+  "description": "dash-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Mufasa A. (mufasa159)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^39.2.0",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1"
+  },
+  "engines": {
+    "node": "10.16.2"
+  }
+}
