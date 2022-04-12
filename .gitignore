@@ -1,0 +1,6 @@
+node_modules/
+node_modules
+pg_hba.conf
+postgresql.conf
+Procfile
+.DS_Store
