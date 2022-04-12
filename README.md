@@ -10,7 +10,9 @@
 2. Create a `.env` file and store all the database information.
 3. Update `db.js` file with database info from `.env` file.
 
-Note: If you plan to use MySQL, MongoDB, or other DB, update the `db.js` to connect to your preferred database.
+Notes:  
+- If you're getting SSL error and don't care about security, uncomment the ssl part in `db.js`.   
+- If you plan to use MySQL, MongoDB, or other DB, update the `db.js` to connect to your preferred database.
   
 ### Google Calendar Configuration  
 Google Cloud API  
