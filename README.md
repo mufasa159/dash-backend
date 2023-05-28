@@ -22,12 +22,17 @@ Google Cloud API
 4. Download credential file and store it in main directory
   
 Calendar Authentication    
-1. Run `nodemon`  
+1. Run `npm run dev`  
 2. Visit `http://localhost:8080/upcoming-events`  
 3. Return to terminal and open the authentication link  
 4. Sign in using browser and then copy the code  
 5. Paste it in the terminal  
 6. Refresh the `/upcoming-events` page
+
+
+### Quote API 
+
+Go to `index.js` and update the bearer token. You can get a free API key from TheySaidSo website.
 
 ---
 
@@ -40,6 +45,7 @@ Calendar Authentication
 |`/remove-habit`| POST | `id` : integer | Remove an habit from database|
 |`/mark-as-complete`| POST | `habit_id` : integer <br/> `streak` : integer | Mark as complete and update streak count | 
 |`/upcoming-events` | GET | N/A |  Get 3 upcoming events from Google Calendar |
+|`/quote`|GET|N/A|Get "Quote of The Day" from TheySaidSo API|
 
 
 
