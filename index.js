@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const pool = require('./db');
+const request = require('request');
 let port = process.env.PORT || 8080;
 
 // middleware
@@ -125,6 +126,52 @@ app.get("/upcoming-events", async (req, res) => {
    }
    res.send(upcomingEvents)
 })
+
+app.get('/quote', (req, res) => {
+   request(
+     { 
+      url: 'https://quotes.rest/qod?language=en', 
+      headers: { 
+         'Accept' : 'application/json',
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer enter-your-bearer-token-here',
+         'Access-Control-Allow-Origin': '*'
+      }},
+     (error, response, body) => {
+       if (error || response.statusCode !== 200) {
+         // return res.status(500).json({ type: 'error', message: error});
+         return res.status(201).json(
+            {
+               "success": {
+                 "total": 1
+               },
+               "contents": {
+                 "quotes": [
+                   {
+                     "quote": "[Error. Check backend] Do not worry if you have built your castles in the air. They are where they should be. Now put the foundations under them.",
+                     "length": "122",
+                     "author": "Henry David Thoreau",
+                     "tags": [
+                       "dreams",
+                       "inspire",
+                       "worry"
+                     ],
+                     "category": "inspire",
+                     "date": "2016-11-21",
+                     "title": "Inspiring Quote of the day",
+                     "background": "https://theysaidso.com/img/bgs/man_on_the_mountain.jpg",
+                     "id": "mYpH8syTM8rf8KFORoAJmQeF"
+                   }
+                 ]
+               }
+             }
+         );
+       }
+ 
+       res.json(JSON.parse(body));
+     }
+   )
+ });
 
 // start server
 app.listen(port, () => {
